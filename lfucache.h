@@ -25,8 +25,6 @@
 #include <unordered_map>
 #include <utility>
 
-#include "cacheinterface.h"
-
 namespace cts {
 
 template <typename Key, typename Value>

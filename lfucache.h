@@ -21,6 +21,7 @@
 // SOFTWARE.
 #pragma once
 
+#include <cstddef>
 #include <list>
 #include <unordered_map>
 #include <utility>
@@ -44,7 +45,10 @@ class LFUCache {
     }
 
    public:
-    LFUCache(const size_t capacity = 0) : m_capacity(capacity), m_minf(0) {}
+    LFUCache(const size_t capacity = 0) : m_capacity(capacity), m_minf(0) {
+        m_cache.reserve(m_capacity);
+        m_frequencies.reserve(m_capacity);
+    }
 
     Value* get(const Key& key) {
         auto it = m_cache.find(key);
